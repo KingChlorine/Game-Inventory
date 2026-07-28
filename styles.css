@@ -1,0 +1,126 @@
+* {margin: 0px;}
+
+#navbar {
+    width: 100vw;
+    height: 10em;
+    background-color: rgb(17, 17, 17);
+    color: rgb(185, 10, 10);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box; }
+
+#header {
+    flex: 1;
+}
+
+#editbutton {
+    height: 1.5em;
+    width: 1.5em;
+    color: aliceblue;
+    background-color: rgb(17, 17, 17);
+    border: none;
+    font-size: 2em;
+    text-align: center;
+    
+  
+}
+
+#logo {
+    height: 2em;
+    width: 2em;
+}
+
+#search {
+    height: 1.5em;
+    width: 1.5em;
+    font-size: 2em;
+    color: aliceblue;
+    background-color: rgb(17, 17, 17);
+    border: none;
+}
+
+#search:hover {
+    background-color: rgb(43, 43, 43);
+}
+#editbutton:hover {
+    background-color: rgb(43, 43, 43);
+}
+
+#container {
+    background-color: rgb(37, 37, 37);
+    width: 100vw;
+    height: 30em;
+}
+
+#gamecarousel {
+    background-color: rgb(37, 37, 37);
+    margin: auto;
+    width: 100vw;
+    padding-left: 5em;
+    height: 30em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    anchor-name: --gamecarousel;
+    scroll-snap-type: x mandatory;
+}
+
+#gamecarousel::-webkit-scrollbar{
+
+    display: none;
+}
+
+#gamecarousel::scroll-button(*) {
+    position: fixed;
+    position-anchor: --gamecarousel;
+    cursor: pointer;
+
+}
+
+
+#gamecarousel::scroll-button(right) {
+    content: '→';
+    height: 5em;
+    width: 5em;
+    translate: -50%;
+    position-area: right center;
+
+}
+
+#gamecarousel::scroll-button(left) {
+    content: '←';
+    height: 5em;
+    width: 5em;
+    translate: 50%;
+    position-area: left center;
+
+
+}
+
+.carouselcard {
+   
+    background-color: rgb(201, 200, 200);
+    border-radius: 4%;
+    flex: 0 0 20em;
+    scroll-snap-align: start;
+    aspect-ratio: 6 / 8;
+}
+
+#attribution {
+    color: rgb(17, 17, 17);
+}
+
+@media(max-width: 500px){
+    .carouselcard {
+        flex: 0 0 100%;
+    }
+}
