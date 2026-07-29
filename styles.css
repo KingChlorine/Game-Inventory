@@ -33,15 +33,11 @@
 }
 
 #searchbar {
-    border: none;
-    border-radius: 10%;
-    height: 1.5em;
+    height: 2em;
     width: 20em;
-}
-
-
-.hide {
-     width: 2px;
+    border-radius: 1em;
+    border-style: none;
+    display: none;
 }
 
 #logo {
@@ -153,5 +149,14 @@
 @media(max-width: 500px){
     .carouselcard {
         flex: 0 0 100%;
+    }
+    #navbar {
+        flex: 0 0 100%;
+        flex-wrap: wrap;
+        font-size: 50%;
+    }
+
+    .platformlbl {
+        font-size: 50%;
     }
 }
