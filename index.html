@@ -11,7 +11,7 @@
     <div id="navbar">
         <img class="navitem" id="logo" alt="swords" src="gamepad.png">
         <h1 id="header" class="navitem">Game Inventory</h1>
-        <input id="searchbar" label="search">
+        <input aria-label="search games in inventory" id="searchbar" label="search">
         <button onclick="hide()" id="search" class="navitem" type="button">⌕</button>
         <button id="editbutton" class="navitem" type="button">+</button>
     </div>
@@ -23,7 +23,7 @@
 
     <div id="container">
     <div id="gamecarousel">
-        <div class="carouselcard"></div>
+        <div onclick="popupform()" class="carouselcard"><p>+</p></div>
         <div class="carouselcard"></div>
         <div class="carouselcard"></div>
         <div class="carouselcard"></div>
@@ -39,6 +39,26 @@
 
        <div id="container">
      </div>
+
+
+    <div id="overlay">
+    <div id="popupform-addgame">
+        <h1>Add Game</h1>
+        <label for="gamename">Name</label>
+        <input id="gamename">
+        <label for="platform">Platform</label>
+        <input id="platform">
+        <div>
+        <label for="digital">Digital</label>
+        <input type="radio" id="digital">
+        <label for="physical">Physical</label>
+        <input type="radio" id="physical">
+        </div>
+        <div id="formbuttons">
+        <button id="submit" type="submit">Submit</button>
+        <button onclick="closepopup()" id="close" type="button">close</button>
+        </div>   
+    </div></div>
 
 
     

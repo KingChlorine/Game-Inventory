@@ -140,10 +140,59 @@
     flex: 0 0 20em;
     scroll-snap-align: start;
     aspect-ratio: 6 / 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.carouselcard p {
+    font-size: 10em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #attribution {
     color: rgb(17, 17, 17);
+}
+
+#popupform-addgame {
+    min-height: 30em;
+    max-width: 25em;
+    margin: auto;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    box-sizing: border-box;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+    padding-top: 2em;
+    position: fixed;
+    z-index: 1;
+    border-radius: 2%;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#gamename, #platform {
+    font-size: 1.5em;
+}
+
+#submit, #close {
+    font-size: 1.5em;
+    width: 5em;
 }
 
 @media(max-width: 500px){
