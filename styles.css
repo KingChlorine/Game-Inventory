@@ -1,4 +1,5 @@
-* {margin: 0px;}
+* {margin: 0px;
+   overflow-x: hidden;}
 
 #navbar {
     width: 100vw;
@@ -82,7 +83,11 @@
     padding-bottom: 2em;
     box-sizing: border-box;
 }
+/*If I keep the carousel I will take a different approach 
+to the buttons as anchoring doesn't have wide support and 
+styling is limited with this pseudo button approach
 
+/*
 #gamecarousel {
     background-color: rgb(37, 37, 37);
     margin: auto;
@@ -132,6 +137,8 @@
 
 
 }
+
+*/
 
 .carouselcard {
    
@@ -194,6 +201,96 @@
     font-size: 1.5em;
     width: 5em;
 }
+
+
+.resultcontainer{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+
+}
+
+#results {
+    margin: auto;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    flex-basis: 1;
+    box-sizing: border-box;
+
+   
+}
+
+.gameResult {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2em;
+    justify-content: left;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.gameResult:hover {
+    color:rgb(201, 200, 200)
+}
+
+#searchContainer {
+    margin: auto;
+    width: 30em;
+    display: flex;
+    
+    
+}
+
+#searchGamebtn {
+    width: 10em;
+    height: 4em;
+  
+}
+
+#searchinput {
+    width: 25em;
+    height: 4em;
+    box-sizing: border-box;
+
+}
+
+.gameCardImg{
+    aspect-ratio: 6 / 8;
+    width: 8em;
+    height: 10em;
+    box-sizing: border-box;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.gameCard {
+    height: 20em;
+    width: 15em;
+    background-color: rgb(201, 200, 200);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#gamelanding {
+    display: flex;
+    gap: 2em;
+}
+
 
 @media(max-width: 500px){
     .carouselcard {
