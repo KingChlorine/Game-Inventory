@@ -74,6 +74,7 @@ function displayResults(games) {
 
         // Add Game button
         const btn = document.createElement("button");
+        btn.classList.add('addGamebtn')
         btn.textContent = "Add Game";
         btn.addEventListener("click", () => addGame(game));
         div.appendChild(btn);
@@ -103,6 +104,7 @@ function addGame(game) {
     const card = document.createElement("div");
     card.classList.add("gameCard");
 
+
     const coverUrl = game.cover ? "https:" + game.cover.url : "";
 
     // Cover image
@@ -116,6 +118,13 @@ function addGame(game) {
     title.classList.add("gameCardTitle");
     title.textContent = game.name;
     card.appendChild(title);
+
+
+    //remove button
+    const btn = document.createElement("button");
+    btn.classList.add("removeGame")
+    btn.textContent = "Remove"
+    card.appendChild(btn);
 
     landing.appendChild(card);
 }

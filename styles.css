@@ -14,7 +14,7 @@
     padding-right: 5em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
-    position: sticky; 
+    position: fixed; 
     top: 0;
     z-index: 1;}
 
@@ -66,7 +66,10 @@
 #container {
     background-color: rgb(37, 37, 37);
     width: 100vw;
-    height: 30em;
+    min-height: 30em;
+    padding-top: 10em;
+    padding-bottom: 10em;
+    
     
 }
 
@@ -163,8 +166,7 @@ styling is limited with this pseudo button approach
 }
 
 #popupform-addgame {
-    min-height: 30em;
-    max-width: 25em;
+    
     margin: auto;
     background-color: rgb(247, 247, 247);
     display: flex;
@@ -176,8 +178,7 @@ styling is limited with this pseudo button approach
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.2em;
     padding-top: 2em;
-    position: fixed;
-    z-index: 1;
+    z-index: 10;
     border-radius: 2%;
 }
 
@@ -191,6 +192,7 @@ styling is limited with this pseudo button approach
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 #gamename, #platform {
@@ -210,7 +212,7 @@ styling is limited with this pseudo button approach
     align-content: center;
     align-items: center;
     justify-items: center;
-    flex-wrap: wrap;
+    flex-shrink: 1;
 
 }
 
@@ -220,10 +222,6 @@ styling is limited with this pseudo button approach
     display: flex;
     flex-direction: column;
     gap: .5em;
-    flex-shrink: 1;
-    flex-wrap: wrap;
-    flex-basis: 1;
-    box-sizing: border-box;
 
    
 }
@@ -234,9 +232,18 @@ styling is limited with this pseudo button approach
     flex-direction: row-reverse;
     gap: 2em;
     justify-content: left;
+    align-content: center;
     align-items: center;
     box-sizing: border-box;
     cursor: pointer;
+    margin-top: 1em;
+    border-bottom: solid gray 1px;
+  
+    
+}
+
+.gameResult p {
+    flex: 1;
 }
 
 .gameResult:hover {
@@ -261,6 +268,7 @@ styling is limited with this pseudo button approach
     width: 25em;
     height: 4em;
     box-sizing: border-box;
+    flex: 1;
 
 }
 
@@ -289,8 +297,18 @@ styling is limited with this pseudo button approach
 #gamelanding {
     display: flex;
     gap: 2em;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
 }
 
+
+.addGamebtn {
+
+   
+    flex-wrap: nowrap;
+    width: 10em;
+    }
 
 @media(max-width: 500px){
     .carouselcard {
