@@ -132,5 +132,19 @@ function addGame(game) {
     landing.appendChild(card);
 }
 
+function search() {
+    const searchValue = document.getElementById("searchbar").value.toLowerCase();
+    const cards = document.getElementsByClassName("gameCard");
 
-    
+    for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const title = card.querySelector(".gameCardTitle").textContent.toLowerCase();
+
+        if (title.includes(searchValue)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    }
+}
+

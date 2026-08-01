@@ -11,7 +11,7 @@
     <div id="navbar">
         <img class="navitem" id="logo" alt="swords" src="gamepad.png">
         <h1 id="header" class="navitem">Game Inventory</h1>
-        <input aria-label="search games in inventory" id="searchbar" label="search">
+        <input aria-label="search games in inventory" id="searchbar" oninput="search()" label="search">
         <button onclick="hide()" id="search" class="navitem" type="button">⌕</button>
         <button onclick="popupform()" id="editbutton" class="navitem" type="button">+</button>
     </div>
@@ -47,6 +47,7 @@
 
     <div id="overlay">
     <div id="popupform-addgame">
+         <button onclick="closepopup()" id="close" type="button">x</button>
         <h1>Add Game</h1>
          <div class="resultcontainer">
      <div id="searchContainer">
@@ -54,8 +55,7 @@
      <button id="searchGamebtn" type="button" onclick="gameSearch()">Search Games</button></div>
      <div id="results"></div></div>
         <div id="formbuttons">
-        <button id="submit" type="submit">Submit</button>
-        <button onclick="closepopup()" id="close" type="button">close</button>
+        
         </div>   
     </div></div>
 

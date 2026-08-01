@@ -195,13 +195,21 @@ styling is limited with this pseudo button approach
     z-index: 10;
 }
 
-#gamename, #platform {
-    font-size: 1.5em;
+
+
+#formbuttons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
 }
 
-#submit, #close {
+#close {
+    text-align: right;
+    margin-top: -1em;
+    background-color: rgb(247, 247, 247);
+    border: none;
     font-size: 1.5em;
-    width: 5em;
+    cursor: pointer;
 }
 
 
