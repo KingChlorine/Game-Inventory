@@ -124,6 +124,9 @@ function addGame(game) {
     const btn = document.createElement("button");
     btn.classList.add("removeGame")
     btn.textContent = "Remove"
+    btn.addEventListener("click", () => {
+        landing.removeChild(card);
+    });
     card.appendChild(btn);
 
     landing.appendChild(card);
