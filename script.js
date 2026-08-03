@@ -109,8 +109,8 @@ function addGame(game) {
 
     // Cover image
     const img = document.createElement("img");
-    img.src = coverUrl;
     img.classList.add("gameCardImg");
+    img.src = coverUrl;
     card.appendChild(img);
 
     // Title
@@ -141,7 +141,7 @@ function search() {
         const title = card.querySelector(".gameCardTitle").textContent.toLowerCase();
 
         if (title.includes(searchValue)) {
-            card.style.display = "block";
+            card.style.display = "";
         } else {
             card.style.display = "none";
         }
