@@ -36,7 +36,8 @@ document.getElementById('searchGamebtn').addEventListener('click', () => {
 
 function searchGames(query) {
 
-    fetch('http://127.0.0.1:5000/search?query=${encodeURIComponent(query)}')
+    fetch(`https://game-inventory-backend.onrender.com/search?query=${encodeURIComponent(query)}`)
+
         .then(Response => Response.json())
         .then(data => {
             console.log("IGDB results:", data);
@@ -53,7 +54,8 @@ function gameSearch() {
 
     const query = document.getElementById("searchinput").value;
 
-    fetch(`http://127.0.0.1:5000/search?query=${encodeURIComponent(query)}`)
+    fetch(`https://game-inventory-backend.onrender.com/search?query=${encodeURIComponent(query)}`)
+
         .then(res => res.json())
         .then(data => {
             console.log("Results:", data);
