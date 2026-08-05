@@ -3,7 +3,7 @@
 
 #navbar {
     width: 100vw;
-    height: 6em;
+    min-height: 6em;
     background-color: rgb(17, 17, 17);
     color: rgb(185, 10, 10);
     display: flex;
@@ -16,7 +16,10 @@
     box-sizing: border-box;
     position: fixed; 
     top: 0;
-    z-index: 1;}
+    z-index: 1;
+    align-items: center;
+   
+}
 
 #header {
     flex: 1;
@@ -334,6 +337,19 @@ styling is limited with this pseudo button approach
     }
 
 @media(max-width: 500px){
+
+    #navbar {
+   
+   
+   
+}
+
+    
+    .hidden {
+        display: none;
+    }
+
+
     .carouselcard {
         flex: 0 0 100%;
     }

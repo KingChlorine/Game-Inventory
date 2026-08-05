@@ -5,10 +5,14 @@ const card = document.getElementsByClassName('carouselcard')
 const popup = document.getElementById('overlay')
 
 const close = document.getElementById('close')
+const header = document.getElementById('header')
+const editbtn = document.getElementById('editbutton')
 
 function hide(){
 
         searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';
+        header.classList.toggle('hidden');
+        editbtn.classList.toggle('hidden');
 
     }
 
