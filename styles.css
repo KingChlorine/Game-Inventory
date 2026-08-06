@@ -17,12 +17,15 @@
     position: fixed; 
     top: 0;
     z-index: 1;
+    flex-wrap: nowrap;
     align-items: center;
+    flex-basis: 0;
    
 }
 
 #header {
     flex: 1;
+    font-size: 1.5em;
 }
 
 #editbutton {
@@ -34,6 +37,7 @@
     font-size: 2em;
     text-align: center;
     border-radius: 50%;  
+  
 }
 
 #searchbar {
@@ -42,11 +46,13 @@
     border-radius: 1em;
     border-style: none;
     display: none;
+    flex-shrink: 1;
 }
 
 #logo {
     height: 2em;
     width: 2em;
+    flex-shrink: 0;
 }
 
 #search {
@@ -57,6 +63,7 @@
     background-color: rgb(17, 17, 17);
     border: none;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
 #search:hover {
@@ -339,10 +346,29 @@ styling is limited with this pseudo button approach
 @media(max-width: 500px){
 
     #navbar {
-   
-   
-   
+        justify-content:center !important;
+        gap: 0em !important;
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+        flex: 0 0 100%;
+        flex-wrap: nowrap;
+ 
 }
+
+#search {
+    font-size: 1.5em;
+    margin-left: .5em;
+}
+
+#header 
+{padding-left: .5em;}
+
+#logo {
+    padding-right: .5em;
+}
+
+#editbutton {
+    font-size: 1.7em; } 
 
     
     .hidden {
@@ -353,11 +379,7 @@ styling is limited with this pseudo button approach
     .carouselcard {
         flex: 0 0 100%;
     }
-    #navbar {
-        flex: 0 0 100%;
-        flex-wrap: wrap;
-        font-size: 50%;
-    }
+
 
     .platformlbl {
         font-size: 50%;
