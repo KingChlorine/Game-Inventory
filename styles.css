@@ -299,8 +299,8 @@ styling is limited with this pseudo button approach
 
 .gameCardImg{
     aspect-ratio: 6 / 8;
-    width: 8em;
-    height: 10em;
+    width: 10em;
+    height: 12em;
     box-sizing: border-box;
     margin-top: 2em;
     margin-bottom: 2em;
@@ -310,7 +310,7 @@ styling is limited with this pseudo button approach
 .gameCard {
     height: 20em;
     width: 15em;
-    background-color: rgb(201, 200, 200);
+    background-color: rgb(201, 200, 200, 0.6);
     border-radius: 10px;
     display: flex;
     flex-direction: column;

@@ -8,6 +8,7 @@ const close = document.getElementById('close')
 const header = document.getElementById('header')
 const editbtn = document.getElementById('editbutton')
 
+
 function hide(){
 
         searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';
@@ -51,8 +52,6 @@ function searchGames(query) {
 }
 
 
-//test delete
-
 function gameSearch() {
     console.log("Button clicked!");
 
@@ -76,7 +75,9 @@ function displayResults(games) {
         const div = document.createElement("div");
         div.classList.add('gameResult');
 
-        const coverUrl = game.cover ? "https:" + game.cover.url : "";
+        const coverUrl = game.cover ? 
+        "https:" + game.cover.url.replace("t_thumb", "t_1080p") 
+        : "";
 
         // Add Game button
         const btn = document.createElement("button");
@@ -102,6 +103,9 @@ function displayResults(games) {
     });
 }
 
+
+// Function to add a game card to the landing page
+
 function addGame(game) {
     console.log("game added:", game);
 
@@ -111,7 +115,10 @@ function addGame(game) {
     card.classList.add("gameCard");
 
 
-    const coverUrl = game.cover ? "https:" + game.cover.url : "";
+      const coverUrl = game.cover ? 
+        "https:" + game.cover.url.replace("t_thumb", "t_1080p") 
+        : "";
+
 
     // Cover image
     const img = document.createElement("img");
@@ -137,6 +144,8 @@ function addGame(game) {
 
     landing.appendChild(card);
 }
+
+// Search function for filtering game cards
 
 function search() {
     const searchValue = document.getElementById("searchbar").value.toLowerCase();
