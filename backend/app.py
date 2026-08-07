@@ -12,7 +12,8 @@ from dotenv import load_dotenv
 # Initialize Flask app and enable CORS
 app = Flask(__name__)
 CORS(app, origins=[
-    "https://kingchlorine.github.io"
+    "https://kingchlorine.github.io",
+     "http://127.0.0.1:5500"
 ])
 
 
