@@ -115,9 +115,9 @@ function addGame(game) {
     card.classList.add("gameCard");
 
 
-      const coverUrl = game.cover ? 
-        "https:" + game.cover.url.replace("t_thumb", "t_1080p") 
-        : "";
+    const coverUrl = game.cover ? 
+    "https:" + game.cover.url.replace("t_thumb", "t_1080p") 
+    : "";
 
 
     // Cover image
@@ -155,7 +155,7 @@ function search() {
         const card = cards[i];
         const title = card.querySelector(".gameCardTitle").textContent.toLowerCase();
 
-        if (title.includes(searchValue)) {
+        if (title.startsWith(searchValue)) {
             card.style.display = "";
         } else {
             card.style.display = "none";
