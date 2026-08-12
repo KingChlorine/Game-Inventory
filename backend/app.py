@@ -1,10 +1,45 @@
+import json
 # Flask app for handling game search requests
 from flask import Flask, request, jsonify
+app = Flask(__name__)
 
 # controls allowed browser based website requests to backend
 from flask_cors import CORS
 import requests
 import os
+
+def load_games():
+    try:
+        with open("games.json", "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
+def save_games(games):
+    with open("games.json", "w") as f:
+        json.dump(games, f, indent=4)
+
+@app.route("/games", methods=["GET", "POST"])
+def games():
+    if request.method == "POST":
+        new_game = request.json
+        games = load_games()
+        games.append(new_game)
+        save_games(games)
+        return jsonify({"message": "Game added successfully!"}), 201
+    else:
+        games = load_games()
+        return jsonify(games)
+
+@app.route("/games/<string:title>", methods=["DELETE"])
+def delete_game(title):
+    games = load_games()
+    if 0 <= title < len(games):
+        deleted_game = games.pop(title)
+        save_games(games)
+        return jsonify({"message": f"Game '{deleted_game['title']}' deleted successfully!"}), 200
+    else:
+        return jsonify({"error": "Game not found!"}), 404
 
 #get variables from .env file
 from dotenv import load_dotenv
