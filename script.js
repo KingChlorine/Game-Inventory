@@ -5,15 +5,10 @@ const card = document.getElementsByClassName('carouselcard')
 const popup = document.getElementById('overlay')
 
 const close = document.getElementById('close')
-const header = document.getElementById('header')
-const editbtn = document.getElementById('editbutton')
-
 
 function hide(){
 
         searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';
-        header.classList.toggle('hidden');
-        editbtn.classList.toggle('hidden');
 
     }
 
@@ -28,28 +23,19 @@ function closepopup(){
     popup.style.display = 'none';
 }
 
-//fetchAPI @BroCodez
+
 
 //fetchAPI copilot
 
 document.getElementById('searchGamebtn').addEventListener('click', () => {
 
     const query = document.getElementById('searchinput').value;
-    searchGames(query);
+    gameSearch();
 
 });
 
-function searchGames(query) {
 
-    fetch(`https://game-inventory-backend.onrender.com/search?query=${encodeURIComponent(query)}`)
-
-        .then(Response => Response.json())
-        .then(data => {
-            console.log("IGDB results:", data);
-            displayResults(data);
-        })
-        .catch(err => console.error("Search error", err));
-}
+//used copilot to generate these functions
 
 
 function gameSearch() {
@@ -57,8 +43,7 @@ function gameSearch() {
 
     const query = document.getElementById("searchinput").value;
 
-    fetch(`https://game-inventory-backend.onrender.com/search?query=${encodeURIComponent(query)}`)
-
+    fetch(`http://127.0.0.1:5000/search?query=${encodeURIComponent(query)}`)
         .then(res => res.json())
         .then(data => {
             console.log("Results:", data);
@@ -75,9 +60,7 @@ function displayResults(games) {
         const div = document.createElement("div");
         div.classList.add('gameResult');
 
-        const coverUrl = game.cover ? 
-        "https:" + game.cover.url.replace("t_thumb", "t_1080p") 
-        : "";
+        const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
 
         // Add Game button
         const btn = document.createElement("button");
@@ -103,9 +86,6 @@ function displayResults(games) {
     });
 }
 
-
-// Function to add a game card to the landing page
-
 function addGame(game) {
     console.log("game added:", game);
 
@@ -115,10 +95,7 @@ function addGame(game) {
     card.classList.add("gameCard");
 
 
-    const coverUrl = game.cover ? 
-    "https:" + game.cover.url.replace("t_thumb", "t_1080p") 
-    : "";
-
+    const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
 
     // Cover image
     const img = document.createElement("img");
@@ -145,8 +122,6 @@ function addGame(game) {
     landing.appendChild(card);
 }
 
-// Search function for filtering game cards
-
 function search() {
     const searchValue = document.getElementById("searchbar").value.toLowerCase();
     const cards = document.getElementsByClassName("gameCard");
@@ -155,7 +130,7 @@ function search() {
         const card = cards[i];
         const title = card.querySelector(".gameCardTitle").textContent.toLowerCase();
 
-        if (title.startsWith(searchValue)) {
+        if (title.includes(searchValue)) {
             card.style.display = "";
         } else {
             card.style.display = "none";
