@@ -3,7 +3,7 @@
 
 #navbar {
     width: 100vw;
-    min-height: 6em;
+    min-height: 8em;
     background-color: rgb(17, 17, 17);
     color: rgb(185, 10, 10);
     display: flex;
@@ -40,14 +40,28 @@
   
 }
 
-#searchbar {
-    height: 2em;
-    width: 20em;
-    border-radius: 1em;
-    border-style: none;
-    display: none;
-    flex-shrink: 1;
+@keyframes animationSB {
+    0% {transform:scaleX(10%);}
+    100% {transform: scaleX(100%);}
 }
+
+
+
+#searchbar:focus {
+    outline: none;
+}
+
+/*#searchbar:hover {
+    width: 20em;
+    transition: width 0.5s ease-in-out;
+}*/
+
+/*#searchbar:not(:hover) {
+    width: 2em;
+    transition: width 0.5s ease-in-out;
+}*/
+
+
 
 #logo {
     height: 2em;
@@ -59,7 +73,7 @@
     height: 1.5em;
     width: 1.5em;
     font-size: 2em;
-    color: aliceblue;
+    color: red;
     background-color: rgb(17, 17, 17);
     border: none;
     border-radius: 50%;
@@ -295,6 +309,47 @@ styling is limited with this pseudo button approach
     box-sizing: border-box;
     flex: 1;
 
+}
+
+.searchbox {
+    position: relative;
+    width: 2em;
+    height: 2em;
+    border-radius: 5em;
+    overflow: hidden;
+    transition: 0.5s;
+    background-color: white;
+}
+
+.searchbox input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0.5em;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+.searchicon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.2em;
+    height: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    font-size: 1.5em;
+    pointer-events: none;
+}
+
+.searchbox:hover {
+    width: 20em;
 }
 
 .gameCardImg{

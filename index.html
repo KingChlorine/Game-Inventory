@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
     <div id="navbar">
         <img class="navitem" id="logo" alt="swords" src="gamepad.png">
         <h1 id="header" class="navitem">Game Inventory</h1>
-        <input aria-label="search games in inventory" id="searchbar" oninput="search()" label="search" placeholder="⌕" type="text">
-        <button onclick="hide()" id="search" class="navitem" type="button">⌕</button>
+
+        <div class="searchbox">
+        <input aria-label="search games in inventory" id="searchbar" oninput="search()" label="search" placeholder="Search games..." type="text">
+        <!-- <button onclick="hide()" id="search" class="navitem" type="button">⌕</button> -->
+        <div class="searchicon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        </div>
+
+
         <button onclick="popupform()" id="editbutton" class="navitem" type="button">+</button>
     </div>
     

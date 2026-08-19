@@ -6,11 +6,11 @@ const popup = document.getElementById('overlay')
 
 const close = document.getElementById('close')
 
-function hide(){
+//function hide(){
 
-        searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';
+//        searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';
 
-    }
+//    }
 
 function popupform(){
 
