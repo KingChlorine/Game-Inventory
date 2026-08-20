@@ -130,7 +130,7 @@ function search() {
         const card = cards[i];
         const title = card.querySelector(".gameCardTitle").textContent.toLowerCase();
 
-        if (title.startsWith(searchValue)) {
+        if (title.startsWith(searchValue) || title.includes(searchValue)) {
             card.style.display = "";
         } else {
             card.style.display = "none";
@@ -138,3 +138,16 @@ function search() {
     }
 }
 
+//write game data to json file using fetch and post request to flask server
+function writeGameToJSON(game) { 
+    fetch('http://127.0.0.1:5000/add_game', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(game)
+    })
+    .then(response => response.json())
+    .then(data => console.log("Game added:", data))
+    .catch(err => console.error("Error:", err));
+}

@@ -276,6 +276,7 @@ styling is limited with this pseudo button approach
     margin-top: 1em;
     border-bottom: solid gray 1px;
     min-height: 5em;
+    overflow: hidden;
   
   
     
@@ -308,7 +309,13 @@ styling is limited with this pseudo button approach
     height: 2em;
     box-sizing: border-box;
     flex: 1;
+    
+    
 
+}
+
+#searchinput:focus {
+    outline: none;
 }
 
 .searchbox {
@@ -393,9 +400,10 @@ styling is limited with this pseudo button approach
 }
 
 .removeGame{
-    color: rgb(54, 54, 54);
+    color: rgb(146, 145, 145);
     width: 10em;
     align-self: center;
+    background-color: rgba(201, 200, 200, 0);
    
 }
 

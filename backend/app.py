@@ -56,6 +56,20 @@ def search():
     response = requests.post(url, headers=headers, data=body)
     return jsonify(response.json())
 
+
+# add game from post request to backend
+@app.route("/add_game", methods=["POST"])
+def add_game():
+    game = request.get_json()
+    # save to games.json file
+    with open("games.json", "r+") as file:
+        data = json.load(file)
+        data.append(game)
+        file.seek(0)
+        json.dump(data, file, indent=4)
+        file.truncate()
+    return jsonify({"message": "Game added successfully!"}), 200
+
 # Run the Flask app
 if __name__ == "__main__":
     app.run(debug=True)
