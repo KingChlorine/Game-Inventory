@@ -70,6 +70,17 @@ def add_game():
         file.truncate()
     return jsonify({"message": "Game added successfully!"}), 200
 
+#read json
+
+@app.route("/games", methods=["GET"])
+def read_json():
+    with open("games.json", "r") as file:
+        data = json.load(file)
+       
+    return jsonify(data)
+
+
+
 # Run the Flask app
 if __name__ == "__main__":
     app.run(debug=True)

@@ -120,6 +120,9 @@ function addGame(game) {
     card.appendChild(btn);
 
     landing.appendChild(card);
+
+    //writeGameToJSON(game);
+    writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl });
 }
 
 function search() {
@@ -139,6 +142,7 @@ function search() {
 }
 
 //write game data to json file using fetch and post request to flask server
+
 function writeGameToJSON(game) { 
     fetch('http://127.0.0.1:5000/add_game', {
         method: 'POST',
@@ -150,4 +154,23 @@ function writeGameToJSON(game) {
     .then(response => response.json())
     .then(data => console.log("Game added:", data))
     .catch(err => console.error("Error:", err));
+}
+
+
+//render games from JSON
+
+function renderGamesFromJSON() {
+    
+
+    const landing = document.getElementById("gamelanding");
+    landing.innerHTML = ""
+    fetch('/games')
+    for(let i = 0; i < json.length; i++){
+        let game = json[i];
+        console.log(data)
+    }
+
+
+
+
 }
