@@ -89,39 +89,39 @@ function displayResults(games) {
 function addGame(game) {
     console.log("game added:", game);
 
-    const landing = document.getElementById("gamelanding");
+    //const landing = document.getElementById("gamelanding");
 
-    const card = document.createElement("div");
-    card.classList.add("gameCard");
+    //const card = document.createElement("div");
+    //card.classList.add("gameCard");
 
 
-    const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
+    //const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
 
     // Cover image
-    const img = document.createElement("img");
-    img.classList.add("gameCardImg");
-    img.src = coverUrl;
-    card.appendChild(img);
+    //const img = document.createElement("img");
+    //img.classList.add("gameCardImg");
+    //img.src = coverUrl;
+    //card.appendChild(img);
 
     // Title
-    const title = document.createElement("p");
-    title.classList.add("gameCardTitle");
-    title.textContent = game.name;
-    card.appendChild(title);
+    //const title = document.createElement("p");
+    //title.classList.add("gameCardTitle");
+    //title.textContent = game.name;
+    //card.appendChild(title);
 
 
     //remove button
-    const btn = document.createElement("button");
-    btn.classList.add("removeGame")
-    btn.textContent = "Remove"
-    btn.addEventListener("click", () => {
-        landing.removeChild(card);
-    });
-    card.appendChild(btn);
+    //const btn = document.createElement("button");
+    //btn.classList.add("removeGame")
+    //btn.textContent = "Remove"
+    //btn.addEventListener("click", () => {
+    //    landing.removeChild(card);
+    //});
+    //card.appendChild(btn);
 
-    landing.appendChild(card);
+    //landing.appendChild(card);
 
-    //writeGameToJSON(game);
+    writeGameToJSON(game);
     writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl });
 }
 
@@ -159,18 +159,60 @@ function writeGameToJSON(game) {
 
 //render games from JSON
 
-function renderGamesFromJSON() {
+
+function renderGamesFromJSON(games) {
     
 
     const landing = document.getElementById("gamelanding");
     landing.innerHTML = ""
-    fetch('/games')
-    for(let i = 0; i < json.length; i++){
-        let game = json[i];
-        console.log(data)
-    }
+    
 
+    fetch('http://127.0.0.1:5000/games')
+    .then(response => response.json())
+    .then(data => { 
+        console.log("json fetched", data);
 
+        data.forEach(game => {
+            console.log(game.name)
+
+            const card = document.createElement("div");
+            card.classList.add("gameCard");
+
+            //create game image
+            
+            
+            const image = document.createElement("img");
+            image.src = game.cover
+            image.classList.add("gameCardImg");
+            card.appendChild(image);
+
+            //create game name
+            const name = document.createElement("p");
+            name.innerHTML = game.name
+            name.classList.add("gameCardTitle");
+            card.appendChild(name);
+
+             //remove button
+            const btn = document.createElement("button");
+            btn.classList.add("removeGame")
+            btn.textContent = "Remove"
+            btn.addEventListener("click", () => {
+                landing.removeChild(card);
+            });
+            card.appendChild(btn);
+
+          
+            landing.appendChild(card)
+            
+
+        });
+
+    })
+
+    .catch(err => console.error("Error:", err));
 
 
 }
+
+window.onload = renderGamesFromJSON()
+
