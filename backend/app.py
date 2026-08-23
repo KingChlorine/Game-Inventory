@@ -80,6 +80,26 @@ def read_json():
     return jsonify(data)
 
 
+@app.route("/delete_game/<int:game_id>", methods=["DELETE"])
+def delete_game(game_id):
+    #load games
+    with open("games.json", "r") as file:
+        data = json.load(file)
+
+    #filter game with matching id
+    updated_data = [game for game in data if game["id"] != game_id]
+
+    #save updated games
+    with open("games.json", "w") as file:
+        json.dump(updated_data, file, indent=4)
+
+    return jsonify({"message": "Game deleted successfully!"}), 200
+  
+
+    
+
+
+
 
 # Run the Flask app
 if __name__ == "__main__":
