@@ -21,6 +21,7 @@ function popupform(){
 function closepopup(){
 
     popup.style.display = 'none';
+    close.addEventListener("click", () => {renderGamesFromJSON()})
 }
 
 
@@ -93,7 +94,7 @@ function addGame(game) {
  
 
     writeGameToJSON({ id: Date.now(), name: game.name, cover: coverUrl });
-    renderGamesFromJSON()
+   
 }
 
 function search() {
