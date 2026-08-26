@@ -6,6 +6,8 @@ const popup = document.getElementById('overlay')
 
 const close = document.getElementById('close')
 
+const host = "https://game-inventory-backend.onrender.com"
+
 //function hide(){
 
 //        searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';
@@ -44,7 +46,7 @@ function gameSearch() {
 
     const query = document.getElementById("searchinput").value;
 
-    fetch(`http://127.0.0.1:5000/search?query=${encodeURIComponent(query)}`)
+    fetch(`${host}/search?query=${encodeURIComponent(query)}`)
         .then(res => res.json())
         .then(data => {
             console.log("Results:", data);
@@ -116,7 +118,7 @@ function search() {
 //write game data to json file using fetch and post request to flask server
 
 function writeGameToJSON(game) { 
-    fetch('http://127.0.0.1:5000/add_game', {
+    fetch('${host}/add_game', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -139,7 +141,7 @@ function renderGamesFromJSON(games) {
     landing.innerHTML = ""
     
 
-    fetch('http://127.0.0.1:5000/games')
+    fetch(`${host}/games`)
     .then(response => response.json())
     .then(data => { 
         console.log("json fetched", data);
@@ -190,7 +192,7 @@ function renderGamesFromJSON(games) {
 
 
 function deleteGamefromJSON(id) { 
-    fetch(`http://127.0.0.1:5000/delete_game/${id}`, {
+    fetch(`${host}/delete_game/${id}`, {
         method: 'DELETE',
       
     })
