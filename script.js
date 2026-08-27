@@ -118,7 +118,7 @@ function search() {
 //write game data to json file using fetch and post request to flask server
 
 function writeGameToJSON(game) { 
-    fetch('${host}/add_game', {
+    fetch(`${host}/add_game`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
