@@ -71,6 +71,9 @@ def add_game():
 
 @app.route("/games", methods=["GET"])
 def read_json():
+    if not os.path.exists("games.json"):
+        with open("games.json", "w") as file:
+            json.dump([], file)
     with open("games.json", "r") as file:
         data = json.load(file)
        
