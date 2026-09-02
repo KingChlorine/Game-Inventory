@@ -23,7 +23,7 @@ load_dotenv()
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
-# Step 1: Get access token
+# Get access token to make requests to IGDB
 def get_token():
     url = "https://id.twitch.tv/oauth2/token"
     params = {
@@ -36,7 +36,7 @@ def get_token():
 
 ACCESS_TOKEN = get_token()
 
-# Step 2: Search endpoint
+# Search endpoint for IGDB requests
 @app.route("/search")
 def search():
     query = request.args.get("query")

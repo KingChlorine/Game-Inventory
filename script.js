@@ -96,7 +96,8 @@ function addGame(game) {
  
 
     writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl });
-    renderGamesFromJSON()
+    renderGamesFromJSON();
+   
 
    
 }
