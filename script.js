@@ -95,7 +95,7 @@ function addGame(game) {
     const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
  
 
-    writeGameToJSON({ id: Date.now(), name: game.name, cover: coverUrl });
+    writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl });
     renderGamesFromJSON()
 
    
