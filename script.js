@@ -5,6 +5,8 @@ const card = document.getElementsByClassName('carouselcard')
 const popup = document.getElementById('overlay')
 
 const close = document.getElementById('close')
+const resultsDiv = document.getElementById("results");
+const gameName = document.getElementsByClassName('gameName')
 
 const host = "https://game-inventory-backend.onrender.com"
 
@@ -56,7 +58,7 @@ function gameSearch() {
 }
 
 function displayResults(games) {
-    const resultsDiv = document.getElementById("results");
+    
     resultsDiv.innerHTML = "";
 
     games.forEach(game => {
@@ -75,6 +77,8 @@ function displayResults(games) {
         // Game name
         const name = document.createElement("p");
         name.innerHTML = `<strong>${game.name}</strong>`;
+        name.classList.add("gameName");
+        name.addEventListener("click", () => showGameDetails(game, name));
         div.appendChild(name);
 
         // Cover image
@@ -168,6 +172,7 @@ function renderGamesFromJSON(games) {
             name.innerHTML = game.name
             name.classList.add("gameCardTitle");
             card.appendChild(name);
+            
 
              //remove button
             const btn = document.createElement("button");
@@ -205,6 +210,20 @@ function deleteGamefromJSON(id) {
     
 }
 
+
+//resultsDive
+//name
+//function to click game result name anch change modal to show enlarged image, 
+// platform selection and add game button
+
+
+
+function showGameDetails(game, name) {
+    name.style.color = "blue"
+    
+  
+
+}
 
 
 window.onload = renderGamesFromJSON;
