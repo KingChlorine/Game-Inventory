@@ -427,7 +427,8 @@ styling is limited with this pseudo button approach
     }
 
 
-
+#details { visibility: hidden;
+            font-size: 0px;}
 @media(max-width: 500px){
 
     #navbar {

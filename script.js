@@ -220,6 +220,13 @@ function deleteGamefromJSON(id) {
 
 function showGameDetails(game, name) {
     name.style.color = "blue"
+    resultsDiv.style.visibility = "hidden"
+    const searchContainer = document.getElementById("searchContainer")
+    searchContainer.style.visibility = "hidden"
+    resultsDiv.style.height = "0px"
+    const detailsdiv = document.getElementById("details")
+    detailsdiv.style.visibility = "visible"
+    detailsdiv.style.fontSize = "1em"
     
   
 
