@@ -68,11 +68,7 @@ function displayResults(games) {
         const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
 
         // Add Game button
-        const btn = document.createElement("button");
-        btn.classList.add('addGamebtn')
-        btn.textContent = "Add Game";
-        btn.addEventListener("click", () => addGame(game));
-        div.appendChild(btn);
+        
 
         // Game name
         const name = document.createElement("p");
@@ -227,6 +223,16 @@ function showGameDetails(game, name) {
     const detailsdiv = document.getElementById("details")
     detailsdiv.style.visibility = "visible"
     detailsdiv.style.fontSize = "1em"
+    const detailsimage = document.createElement("img")
+    detailsimage.src = game.cover ? `https:${game.cover.url.replace('t_thumb', 't_1080p')}` : ""
+    detailsimage.style.width = "25%"
+    detailsdiv.innerHTML = game.name
+    detailsdiv.appendChild(detailsimage)
+    const btn = document.createElement("button");
+        btn.classList.add('addGamebtn')
+        btn.textContent = "Add Game";
+        btn.addEventListener("click", () => addGame(game));
+        detailsdiv.appendChild(btn);
     
   
 
