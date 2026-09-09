@@ -427,8 +427,15 @@ styling is limited with this pseudo button approach
     }
 
 
+
 #details { visibility: hidden;
-            font-size: 0px;}
+            font-size: 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;}
+
+
+
 @media(max-width: 500px){
 
     #navbar {

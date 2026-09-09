@@ -228,11 +228,24 @@ function showGameDetails(game, name) {
     detailsimage.style.width = "25%"
     detailsdiv.innerHTML = game.name
     detailsdiv.appendChild(detailsimage)
+    const platformselect = document.createElement("select");
+    platformselect.id = "platformselect"
+    const platforms = document.createElement("div");
+    const platform1 = document.createElement("button");
+    platform1.value = "PC";
+    platform1.textContent = "PC";
+    const platform2 = document.createElement("button");
+    platform2.value = "PS2";
+    platform2.textContent = "PS2";
+    platforms.appendChild(platform1);
+    platforms.appendChild(platform2);
+    detailsdiv.appendChild(platforms);
     const btn = document.createElement("button");
         btn.classList.add('addGamebtn')
         btn.textContent = "Add Game";
         btn.addEventListener("click", () => addGame(game));
         detailsdiv.appendChild(btn);
+    
     
   
 
