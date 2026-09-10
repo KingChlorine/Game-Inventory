@@ -215,11 +215,14 @@ function deleteGamefromJSON(id) {
 
 
 function showGameDetails(game, name) {
-    name.style.color = "blue"
     resultsDiv.style.display = "none";
+    const resultContainer = document.getElementById("results")
+    resultContainer.style.display = "none";
     const searchContainer = document.getElementById("searchContainer")
     const results = document.getElementById("results")
     results.style.display = "none"
+    const searrchinput = document.getElementById("searchinput")
+    searchContainer.style.display = "none"
   
     const detailsdiv = document.getElementById("details")
     detailsdiv.style.display = "flex"
@@ -246,14 +249,19 @@ function showGameDetails(game, name) {
         btn.textContent = "Add Game";
         btn.addEventListener("click", () => addGame(game));
         detailsdiv.appendChild(btn);
+
+    const popupnav = document.getElementsByClassName("popupnav");
     const backbtn = document.createElement("button");
     backbtn.classList.add('backbtn')
     backbtn.textContent = "<--"
     backbtn.addEventListener("click", () => {
         detailsdiv.style.display = "none";
         resultsDiv.style.display = "flex";
-        results.style.display = "flex"; })
-        detailsdiv.appendChild(backbtn);
+        results.style.display = "flex";
+        searchContainer.style.display = "flex";})
+        popupnav.appendChild(backbtn);
+
+    
     
     
   

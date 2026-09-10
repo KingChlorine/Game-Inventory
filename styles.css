@@ -32,7 +32,7 @@
     height: 1.5em;
     width: 1.5em;
     color: aliceblue;
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(37, 37, 37);
     border: none;
     font-size: 2em;
     text-align: center;
@@ -349,20 +349,21 @@ styling is limited with this pseudo button approach
     padding: 0.5em;
     box-sizing: border-box;
     transition: 0.5s;
+    background-color: rgb(233, 232, 232);
 }
 
 .searchicon {
     position: absolute;
     top: 0;
     right: 0;
-    width: 1.2em;
+    width: 1.4em;
     height: 1.4em;
     display: flex;
     align-items: center;
     justify-content: center;
     color: black;
-    background-color: white;
-    font-size: 1.5em;
+    background-color: rgb(233, 232, 232);
+    font-size: 1.4em;
     pointer-events: none;
 }
 
