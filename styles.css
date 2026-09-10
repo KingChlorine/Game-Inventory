@@ -428,7 +428,7 @@ styling is limited with this pseudo button approach
 
 
 
-#details { visibility: hidden;
+#details {  display: none;
             font-size: 0px;
             display: flex;
             flex-direction: column;

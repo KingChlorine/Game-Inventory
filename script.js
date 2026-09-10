@@ -216,12 +216,13 @@ function deleteGamefromJSON(id) {
 
 function showGameDetails(game, name) {
     name.style.color = "blue"
-    resultsDiv.style.visibility = "hidden"
+    resultsDiv.style.display = "none";
     const searchContainer = document.getElementById("searchContainer")
-    searchContainer.style.visibility = "hidden"
-    resultsDiv.style.height = "0px"
+    const results = document.getElementById("results")
+    results.style.display = "none"
+  
     const detailsdiv = document.getElementById("details")
-    detailsdiv.style.visibility = "visible"
+    detailsdiv.style.display = "flex"
     detailsdiv.style.fontSize = "1em"
     const detailsimage = document.createElement("img")
     detailsimage.src = game.cover ? `https:${game.cover.url.replace('t_thumb', 't_1080p')}` : ""
@@ -245,6 +246,14 @@ function showGameDetails(game, name) {
         btn.textContent = "Add Game";
         btn.addEventListener("click", () => addGame(game));
         detailsdiv.appendChild(btn);
+    const backbtn = document.createElement("button");
+    backbtn.classList.add('backbtn')
+    backbtn.textContent = "<--"
+    backbtn.addEventListener("click", () => {
+        detailsdiv.style.display = "none";
+        resultsDiv.style.display = "flex";
+        results.style.display = "flex"; })
+        detailsdiv.appendChild(backbtn);
     
     
   
