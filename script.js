@@ -250,7 +250,7 @@ function showGameDetails(game, name) {
         btn.addEventListener("click", () => addGame(game));
         detailsdiv.appendChild(btn);
 
-    const popupnav = document.getElementsByClassName("popupnav");
+    const popupnav = document.querySelector(".popupnav");
     const backbtn = document.createElement("button");
     backbtn.classList.add('backbtn')
     backbtn.textContent = "<--"
@@ -258,8 +258,10 @@ function showGameDetails(game, name) {
         detailsdiv.style.display = "none";
         resultsDiv.style.display = "flex";
         results.style.display = "flex";
-        searchContainer.style.display = "flex";})
+        searchContainer.style.display = "flex";
+        backbtn.style.display = "none";})
         popupnav.appendChild(backbtn);
+        
 
     
     
