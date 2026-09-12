@@ -253,7 +253,7 @@ function showGameDetails(game, name) {
     const popupnav = document.querySelector(".popupnav");
     const backbtn = document.createElement("button");
     backbtn.classList.add('backbtn')
-    backbtn.textContent = "<--"
+    backbtn.textContent = "↩"
     backbtn.addEventListener("click", () => {
         detailsdiv.style.display = "none";
         resultsDiv.style.display = "flex";

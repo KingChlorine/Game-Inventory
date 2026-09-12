@@ -236,9 +236,20 @@ styling is limited with this pseudo button approach
     justify-content: center;
 }
 
+.popupnav {
+    height: 2em;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-left: .7em;
+}
+
+#details {
+    padding-left: .7em;
+}
+
 #close {
-    text-align: right;
-    margin-top: -1em;
+   
     background-color: rgb(247, 247, 247);
     border: none;
     font-size: 1.5em;
