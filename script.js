@@ -1,5 +1,6 @@
 const searchbtn = document.getElementById('search')
 const searchbar = document.getElementById('searchbar')
+let selectedPlatform = null;
 
 const card = document.getElementsByClassName('carouselcard')
 const popup = document.getElementById('overlay')
@@ -212,8 +213,16 @@ function deleteGamefromJSON(id) {
 //function to click game result name anch change modal to show enlarged image, 
 // platform selection and add game button
 
+function setPlatformVariable() {
+    let selectedPlatform = null;
+    
+
+}
+
+
 //this populates the html of the details modal state
-function createGameDetails(game) { 
+function createGameDetails(game, selectedPlatform) { 
+
     const detailsdiv = document.getElementById("details")
     detailsdiv.innerHTML = ""
     const detailsimage = document.createElement("img")
@@ -251,6 +260,30 @@ function createGameDetails(game) {
         btn.textContent = "Add Game";
         btn.addEventListener("click", () => addGame(game));
         detailsdiv.appendChild(btn);
+
+    let selectedPlatform = null;
+    
+    platform1.addEventListener("click", () => {
+        selectedPlatform = platform1.value;
+        console.log("Selected platform:", selectedPlatform);
+    });
+    platform2.addEventListener("click", () => {
+        selectedPlatform = platform2.value;
+        console.log("Selected platform:", selectedPlatform);
+    });
+    platform3.addEventListener("click", () => {
+        selectedPlatform = platform3.value;
+        console.log("Selected platform:", selectedPlatform);
+    });
+    platform4.addEventListener("click", () => {
+        selectedPlatform = platform4.value;
+        console.log("Selected platform:", selectedPlatform);
+    });
+    platform5.addEventListener("click", () => { 
+        selectedPlatform = platform5.value;
+        console.log("Selected platform:", selectedPlatform);
+    });
+  
 }
 
 //this funtion hides results and displays the details modal state
