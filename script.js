@@ -233,9 +233,19 @@ function createGameDetails(game) {
     platform2.textContent = "PS2";
     platform3.value = "PS3";
     platform3.textContent = "PS3";
-    platforms.appendChild(platform1, platform3);
+    const platform4 = document.createElement("button");
+    platform4.value = "PS4";
+    platform4.textContent = "PS4";
+    const platform5 = document.createElement("button");
+    platform5.value = "PS5";
+    platform5.textContent = "PS5";  
+    platforms.appendChild(platform1);
     platforms.appendChild(platform2);
+    platforms.appendChild(platform3);
+    platforms.appendChild(platform4); 
+    platforms.appendChild(platform5);  
     detailsdiv.appendChild(platforms);
+    platforms.classList.add("platforms");
     const btn = document.createElement("button");
         btn.classList.add('addGamebtn')
         btn.textContent = "Add Game";

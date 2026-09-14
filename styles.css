@@ -429,11 +429,26 @@ styling is limited with this pseudo button approach
     background-color: rgba(201, 200, 200, 0);
    
 }
+.backbtn {
+    color: rgb(0, 0, 0);
+    background-color: rgb(233, 232, 232);
+    align-self: center;
+    border: none;
+}   
 
+.platforms button{
+    color: rgb(206, 75, 75);
+    width: 5em;
+}
+.platforms{
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
 
 .addGamebtn {
 
-   
+    
     flex-wrap: nowrap;
     width: 10em;
     }
