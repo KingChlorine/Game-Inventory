@@ -446,6 +446,7 @@ styling is limited with this pseudo button approach
             flex-direction: column;
             gap: 1em;}
 
+.hidden {display:none !important;}
 
 
 @media(max-width: 500px){

@@ -212,21 +212,10 @@ function deleteGamefromJSON(id) {
 //function to click game result name anch change modal to show enlarged image, 
 // platform selection and add game button
 
-
-
-function showGameDetails(game, name) {
-    resultsDiv.style.display = "none";
-    const resultContainer = document.getElementById("results")
-    resultContainer.style.display = "none";
-    const searchContainer = document.getElementById("searchContainer")
-    const results = document.getElementById("results")
-    results.style.display = "none"
-    const searrchinput = document.getElementById("searchinput")
-    searchContainer.style.display = "none"
-  
+//this populates the html of the details modal state
+function createGameDetails(game) { 
     const detailsdiv = document.getElementById("details")
-    detailsdiv.style.display = "flex"
-    detailsdiv.style.fontSize = "1em"
+    detailsdiv.innerHTML = ""
     const detailsimage = document.createElement("img")
     detailsimage.src = game.cover ? `https:${game.cover.url.replace('t_thumb', 't_1080p')}` : ""
     detailsimage.style.width = "25%"
@@ -239,9 +228,12 @@ function showGameDetails(game, name) {
     platform1.value = "PC";
     platform1.textContent = "PC";
     const platform2 = document.createElement("button");
+    const platform3 = document.createElement("button");
     platform2.value = "PS2";
     platform2.textContent = "PS2";
-    platforms.appendChild(platform1);
+    platform3.value = "PS3";
+    platform3.textContent = "PS3";
+    platforms.appendChild(platform1, platform3);
     platforms.appendChild(platform2);
     detailsdiv.appendChild(platforms);
     const btn = document.createElement("button");
@@ -249,9 +241,31 @@ function showGameDetails(game, name) {
         btn.textContent = "Add Game";
         btn.addEventListener("click", () => addGame(game));
         detailsdiv.appendChild(btn);
+}
 
+//this funtion hides results and displays the details modal state
+function displayDetails() {
+    const resultContainer = document.getElementById("results")
+    const searchContainer = document.getElementById("searchContainer")
+    const results = document.getElementById("results")
+    const detailsdiv = document.getElementById("details")
+    const resultsDiv = document.getElementById("results");
+    resultsDiv.style.display = "none";
+    resultContainer.style.display = "none";
+    results.style.display = "none"
+    searchContainer.style.display = "none"
+    detailsdiv.style.display = "flex"
+    detailsdiv.style.fontSize = "1em"
+    }
+
+//this function returns the user to results state and hides details modal state
+function hideDetails() {
     const popupnav = document.querySelector(".popupnav");
     const backbtn = document.createElement("button");
+    const detailsdiv = document.getElementById("details")
+    const resultsDiv = document.getElementById("results");
+    const searchContainer = document.getElementById("searchContainer")
+    const results = document.getElementById("results")
     backbtn.classList.add('backbtn')
     backbtn.textContent = "↩"
     backbtn.addEventListener("click", () => {
@@ -261,12 +275,16 @@ function showGameDetails(game, name) {
         searchContainer.style.display = "flex";
         backbtn.style.display = "none";})
         popupnav.appendChild(backbtn);
-        
+}
 
-    
-    
-    
+
+
+
+function showGameDetails(game) {
   
+    displayDetails()
+    createGameDetails(game)
+    hideDetails() 
 
 }
 
