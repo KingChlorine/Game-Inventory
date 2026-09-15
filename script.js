@@ -17,6 +17,17 @@ const host = "https://game-inventory-backend.onrender.com"
 
 //    }
 
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+
+
 function popupform(){
 
         popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
