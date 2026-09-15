@@ -174,7 +174,7 @@ function renderGamesFromJSON(games) {
              //remove button
             const btn = document.createElement("button");
             btn.classList.add("removeGame")
-            btn.textContent = "Remove"
+            btn.textContent = "X"
             btn.addEventListener("click", () => {
                 deleteGamefromJSON(game.id);
             });
@@ -213,15 +213,11 @@ function deleteGamefromJSON(id) {
 //function to click game result name anch change modal to show enlarged image, 
 // platform selection and add game button
 
-function setPlatformVariable() {
-    let selectedPlatform = null;
-    
-
-}
 
 
 //this populates the html of the details modal state
-function createGameDetails(game, selectedPlatform) { 
+function createGameDetails(game) { 
+     let selectedPlatform = null;
 
     const detailsdiv = document.getElementById("details")
     detailsdiv.innerHTML = ""
@@ -258,10 +254,8 @@ function createGameDetails(game, selectedPlatform) {
     const btn = document.createElement("button");
         btn.classList.add('addGamebtn')
         btn.textContent = "Add Game";
-        btn.addEventListener("click", () => addGame(game));
+        btn.addEventListener("click", () => addGame(game, selectedPlatform));
         detailsdiv.appendChild(btn);
-
-    let selectedPlatform = null;
     
     platform1.addEventListener("click", () => {
         selectedPlatform = platform1.value;

@@ -384,17 +384,15 @@ styling is limited with this pseudo button approach
 
 .gameCardImg{
     aspect-ratio: 6 / 8;
-    width: 12em;
-    height: 16em;
+    width: 10em;
+    height: 14em;
     box-sizing: border-box;
-    margin-top: 1em;
-    margin-bottom: 1em;
     align-self: center;
 }
 
 .gameCard {
-    height: 22em;
-    width: 15em;
+    height: 16em;
+    width: 10em;
     background-color: rgb(201, 200, 200, 0.2);
     border-radius: 10px;
     display: flex;
@@ -403,30 +401,39 @@ styling is limited with this pseudo button approach
     text-align: center;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.308);
     cursor: pointer;
+    align-items: center;
     
 }
 
 .gameCard p {
-    height: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 12em;
+    white-space: nowrap;
+    font-size: .8em;
+    height: 1em;
     color: white;
-    padding: 0px;
-    margin: 0px;
+    text-align: center;
 }
 
 #gamelanding {
     display: flex;
-    gap: 2em;
+    width: 57em;
+    gap: 1.5em;
     flex-wrap: wrap;
     margin: auto;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    
 }
 
 .removeGame{
     color: rgb(146, 145, 145);
-    width: 10em;
+    width: 2em;
     align-self: center;
     background-color: rgba(201, 200, 200, 0);
+    border: none;
    
 }
 .backbtn {
