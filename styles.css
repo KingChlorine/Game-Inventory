@@ -104,12 +104,19 @@ body { background: #252525;}
     padding-left: 14em;
 }
 
+.platformlbl1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aliceblue;
+    font-size: .8em;
+    padding-left: 14em;
+}
+
 #container {
     background-color: rgb(37, 37, 37);
     width: 100vw;
-    min-height: 30em;
+    min-height: 10em;
     padding-top: 1em;
-    padding-bottom: 10em;
+    padding-bottom: 1em;
     padding-left: 1.5em;
     box-sizing: border-box;
     
@@ -422,7 +429,7 @@ styling is limited with this pseudo button approach
     text-align: center;
 }
 
-#gamelandingPS5 {
+#gamelandingPS5, #gamelandingPS4 {
     display: flex;
     max-width: 57em;
     gap: 1.5em;
@@ -479,6 +486,10 @@ styling is limited with this pseudo button approach
 
 @media(max-width: 800px){
 
+    .searchboxMobile {
+        padding-top: 10em;
+    }
+
     #navbar {
         justify-content:center !important;
         gap: 0em !important;
@@ -521,6 +532,12 @@ styling is limited with this pseudo button approach
         font-size: 50%;
         padding-left: 4em;
         padding-top: 4em;
+    }
+
+    .platformlbl1 {
+        font-size: 50%;
+        padding-left: 4em;
+        padding-top: 2em;
     }
 
     #searchContainer {

@@ -101,14 +101,16 @@ function displayResults(games) {
     });
 }
 
-function addGame(game) {
+function addGame(game, selectedPlatform) {
     console.log("game added:", game);
+    
 
     const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
  
 
-    writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl });
-    renderGamesFromJSON();
+    writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl, platform: selectedPlatform });
+    
+    
    
 
    
@@ -153,8 +155,9 @@ function renderGamesFromJSON(games) {
     
 
     const landing = document.getElementById("gamelandingPS5");
+    const landing1 = document.getElementById("gamelandingPS4");
     landing.innerHTML = ""
-    
+    landing1.innerHTML = ""
 
     fetch(`${host}/games`)
     .then(response => response.json())
@@ -192,8 +195,13 @@ function renderGamesFromJSON(games) {
           
             card.appendChild(btn);
 
+            if (game.platform === "PS5") {
+                landing.appendChild(card)
+            }
+            if (game.platform === "PS4") {
+                landing1.appendChild(card)
+            }
           
-            landing.appendChild(card)
             
 
         });
@@ -271,24 +279,29 @@ function createGameDetails(game) {
     platform1.addEventListener("click", () => {
         selectedPlatform = platform1.value;
         console.log("Selected platform:", selectedPlatform);
+        return selectedPlatform;
     });
     platform2.addEventListener("click", () => {
         selectedPlatform = platform2.value;
         console.log("Selected platform:", selectedPlatform);
+        return selectedPlatform;
     });
     platform3.addEventListener("click", () => {
         selectedPlatform = platform3.value;
         console.log("Selected platform:", selectedPlatform);
+        return selectedPlatform;
     });
     platform4.addEventListener("click", () => {
         selectedPlatform = platform4.value;
         console.log("Selected platform:", selectedPlatform);
+        return selectedPlatform;
     });
     platform5.addEventListener("click", () => { 
-        selectedPlatform = platform5.value;
+        selectedPlatform = platform5.value; 
         console.log("Selected platform:", selectedPlatform);
+        return selectedPlatform;
     });
-  
+  return selectedPlatform;
 }
 
 //this funtion hides results and displays the details modal state
