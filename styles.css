@@ -1,9 +1,13 @@
+body { background: #252525;}
+
 * {margin: 0px;
    overflow-x: hidden;}
 
 .scrolled {
     background-color: black !important;
 }   
+
+
 
 #navbar {
     width: 100vw;
