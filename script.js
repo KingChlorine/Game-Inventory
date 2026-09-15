@@ -141,7 +141,7 @@ function writeGameToJSON(game) {
 function renderGamesFromJSON(games) {
     
 
-    const landing = document.getElementById("gamelanding");
+    const landing = document.getElementById("gamelandingPS5");
     landing.innerHTML = ""
     
 

@@ -417,9 +417,9 @@ styling is limited with this pseudo button approach
     text-align: center;
 }
 
-#gamelanding {
+#gamelandingPS5 {
     display: flex;
-    width: 57em;
+    max-width: 57em;
     gap: 1.5em;
     flex-wrap: wrap;
     margin: auto;
@@ -526,8 +526,9 @@ styling is limited with this pseudo button approach
     }
 
     .gameCard {
-        height: 11em;
-        width: 7em; 
+        height: 8.5em;
+        width: 5em; 
+        
        
         
     }
@@ -537,12 +538,20 @@ styling is limited with this pseudo button approach
         height: 7em;
     }
 
+    .removeGame {
+        font-size: .7em;
+    }
+
     .gameCard p {
         font-size: 50%;
     }
 
-    #gamelanding {
+    #gamelandingPS5 {
         gap: 1em;
+        min-width: 30em;
+        padding-left: 1em;
+
+
     }
 
 }
