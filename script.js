@@ -11,6 +11,23 @@ const gameName = document.getElementsByClassName('gameName')
 
 const host = "https://game-inventory-backend.onrender.com"
 
+//move search bar on mobilescreen 
+
+const mobileSearch = document.querySelector('.mobileSearch');
+const searchbox = document.querySelector(".searchbox");
+const navbar = document.getElementById('navbar');
+const editbutton = document.getElementById('editbutton')
+
+function moveSearchbox() {
+    if (window.innerWidth <= 800) {
+        mobileSearch.appendChild(searchbox);
+    } else {
+        navbar.insertBefore(searchbox, editbutton);
+    }
+}
+window.addEventListener('resize', moveSearchbox);
+moveSearchbox(); 
+
 //function hide(){
 
 //        searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';

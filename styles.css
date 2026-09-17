@@ -100,7 +100,7 @@ body { background: #252525;}
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: aliceblue;
     font-size: .8em;
-    margin-top: 10em;
+    margin-top: 5em;
     padding-left: 14em;
 }
 
@@ -363,6 +363,7 @@ styling is limited with this pseudo button approach
 }
 
 .searchbox input {
+    order: 3;
     position: absolute;
     top: 0;
     left: 0;
@@ -483,11 +484,22 @@ styling is limited with this pseudo button approach
 
 .hidden {display:none !important;}
 
+.mobileSearch {
+    margin-top: 8em;
+    display: flex;
+    justify-content: center;
+}
+
+
 
 @media(max-width: 800px){
 
     .searchboxMobile {
         padding-top: 10em;
+    }
+
+    .searchbox {
+        width: 18em;
     }
 
     #navbar {
@@ -573,7 +585,7 @@ styling is limited with this pseudo button approach
         font-size: 50%;
     }
 
-    #gamelandingPS5 {
+    #gamelandingPS5, #gamelandingPS4 {
         margin: auto;
         min-width: 25em;
         gap: .5em;
