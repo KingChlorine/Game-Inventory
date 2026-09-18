@@ -173,8 +173,12 @@ function renderGamesFromJSON(games) {
 
     const landing = document.getElementById("gamelandingPS5");
     const landing1 = document.getElementById("gamelandingPS4");
+    const landing2 = document.getElementById("gamelandingPS3");
+    const landing3 = document.getElementById("gamelandingPS2")
     landing.innerHTML = ""
     landing1.innerHTML = ""
+    landing2.innerHTML = ""
+    landing3.innerHTML = ""
 
     fetch(`${host}/games`)
     .then(response => response.json())
@@ -217,6 +221,12 @@ function renderGamesFromJSON(games) {
             }
             if (game.platform === "PS4") {
                 landing1.appendChild(card)
+            }
+            if (game.platform === "PS3") {
+                landing2.appendChild(card)
+            }
+            if (game.platform === "PS2") {
+                landing3.appendChild(card)
             }
           
             

@@ -104,7 +104,7 @@ body { background: #252525;}
     padding-left: 14em;
 }
 
-.platformlbl1 {
+.platformlbl1, .platformlbl2, .platformlbl3 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: aliceblue;
     font-size: .8em;
@@ -430,7 +430,7 @@ styling is limited with this pseudo button approach
     text-align: center;
 }
 
-#gamelandingPS5, #gamelandingPS4 {
+#gamelandingPS5, #gamelandingPS4, #gamelandingPS3 {
     display: flex;
     max-width: 57em;
     gap: 1.5em;
@@ -498,6 +498,10 @@ styling is limited with this pseudo button approach
         padding-top: 10em;
     }
 
+    .searchbox:hover {
+      width: 18em;
+}
+
     .searchbox {
         width: 18em;
     }
@@ -546,7 +550,7 @@ styling is limited with this pseudo button approach
         padding-top: 4em;
     }
 
-    .platformlbl1 {
+    .platformlbl1, .platformlbl2, .platformlbl3 {
         font-size: 50%;
         padding-left: 4em;
         padding-top: 2em;
