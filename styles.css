@@ -484,7 +484,12 @@ styling is limited with this pseudo button approach
 
 .hidden {display:none !important;}
 
-
+.mobileSearch {
+    margin-top: 8em;
+    display: flex;
+    justify-content: center;
+  
+}
 
 
 
@@ -506,9 +511,7 @@ styling is limited with this pseudo button approach
       width: 18em;
 }
 
-    .searchbox {
-        width: 18em;
-    }
+  
 
     #navbar {
         justify-content:center !important;
