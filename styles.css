@@ -484,15 +484,19 @@ styling is limited with this pseudo button approach
 
 .hidden {display:none !important;}
 
-.mobileSearch {
-    margin-top: 8em;
-    display: flex;
-    justify-content: center;
-}
+
 
 
 
 @media(max-width: 800px){
+
+    .mobileSearch {
+    margin-top: 8em;
+    display: flex;
+    justify-content: center;
+    -webkit-appearance: none;
+}
+
 
     .searchboxMobile {
         padding-top: 10em;
