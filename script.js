@@ -19,13 +19,14 @@ const navbar = document.getElementById('navbar');
 const editbutton = document.getElementById('editbutton')
 
 function moveSearchbox() {
+    
     if (window.innerWidth <= 800) {
         mobileSearch.appendChild(searchbox);
     } else {
         navbar.insertBefore(searchbox, editbutton);
     }
 }
-window.addEventListener('resize', moveSearchbox);
+
 moveSearchbox(); 
 
 //function hide(){
