@@ -29,11 +29,7 @@ function moveSearchbox() {
 
 moveSearchbox(); 
 
-//function hide(){
-
-//        searchbar.style.display = searchbar.style.display === 'block' ? 'none' : 'block';
-
-//    }
+//This changes colour of navbar from main theme to black when page is scrolled
 
     window.addEventListener('scroll', () => {
         const navbar = document.getElementById('navbar');
@@ -44,7 +40,7 @@ moveSearchbox();
         }
     });
 
-
+//When + is pressed, checks if addGame popup is visible and if not makes it visible
 
 function popupform(){
 
@@ -52,32 +48,31 @@ function popupform(){
         
     }
 
+  
+//When closepopupbtn is pressed the popup closes
+
+
 function closepopup(){
 
     popup.style.display = 'none';
-    close.addEventListener("click", () => {renderGamesFromJSON()})
+
 }
 
 
 
-//fetchAPI copilot
+//when searchGambtn is clicked, gameSearch() function ins called
 
 document.getElementById('searchGamebtn').addEventListener('click', () => {
 
-    const query = document.getElementById('searchinput').value;
     gameSearch();
 
 });
 
 
-//used copilot to generate these functions
-
-
+//The query variable is interpolated into the url to fetch igdb data. API response is converted to json and logged
+//this data is then passed to the displayResults() function. If search fails, error is logged
 function gameSearch() {
-    console.log("Button clicked!");
-
-    const query = document.getElementById("searchinput").value;
-
+    const query = document.getElementById('searchinput').value;
     fetch(`${host}/search?query=${encodeURIComponent(query)}`)
         .then(res => res.json())
         .then(data => {
@@ -86,6 +81,9 @@ function gameSearch() {
         })
         .catch(err => console.error("Error:", err));
 }
+
+//this function recieves an array from the gameSearch function. A resultsDiv is created and a name 
+// and image for each game is created using the values in the array and then added to the resultsDiv
 
 function displayResults(games) {
     
@@ -96,10 +94,7 @@ function displayResults(games) {
         div.classList.add('gameResult');
 
         const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
-
-        // Add Game button
         
-
         // Game name
         const name = document.createElement("p");
         name.innerHTML = `<strong>${game.name}</strong>`;
@@ -123,14 +118,11 @@ function addGame(game, selectedPlatform) {
     console.log("game added:", game);
     
 
-    const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
+
  
 
     writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl, platform: selectedPlatform });
     
-    
-   
-
    
 }
 
@@ -162,6 +154,7 @@ function writeGameToJSON(game) {
     })
     .then(response => response.json())
     .then(data => console.log("Game added:", data))
+    .then(renderGamesFromJSON())
     .catch(err => console.error("Error:", err));
 }
 
