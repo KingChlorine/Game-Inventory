@@ -114,17 +114,19 @@ function displayResults(games) {
     });
 }
 
+//this function is called when the addGame button is clicked. Game and selectedPlatform are
+// passed to this function and written to JSON
+
 function addGame(game, selectedPlatform) {
     console.log("game added:", game);
-    
-
-
- 
-
+    const coverUrl = game.cover ? "https:" + game.cover.url.replace('t_thumb', 't_1080p') : "";
     writeGameToJSON({ id: game.id, name: game.name, cover: coverUrl, platform: selectedPlatform });
-    
    
 }
+
+// This function filters which owned games are visible. Searchbar input is used to loop through gameCards. 
+// If the title of a game gard matches the search value, nothing is changed, if the title does not match, 
+// the display is set to none.
 
 function search() {
     const searchValue = document.getElementById("searchbar").value.toLowerCase();
@@ -142,7 +144,9 @@ function search() {
     }
 }
 
-//write game data to json file using fetch and post request to flask server
+//needs more understanding************
+// This function uses add_game endpoint to make post request to flask backend
+// When game is successfully added to json, that updated json renders game cards
 
 function writeGameToJSON(game) { 
     fetch(`${host}/add_game`, {
@@ -154,13 +158,12 @@ function writeGameToJSON(game) {
     })
     .then(response => response.json())
     .then(data => console.log("Game added:", data))
-    .then(renderGamesFromJSON())
-    .catch(err => console.error("Error:", err));
+    .catch(err => console.error("Error:", err))
+    .finally(renderGamesFromJSON);
 }
 
-
-//render games from JSON
-
+//This function creates game cards for each game using values stored in JSON file
+//If statments are used to determine platform and which area
 
 function renderGamesFromJSON(games) {
     
@@ -186,8 +189,7 @@ function renderGamesFromJSON(games) {
             card.classList.add("gameCard");
 
             //create game image
-            
-            
+        
             const image = document.createElement("img");
             image.src = game.cover
             image.classList.add("gameCardImg");
@@ -199,7 +201,6 @@ function renderGamesFromJSON(games) {
             name.classList.add("gameCardTitle");
             card.appendChild(name);
             
-
              //remove button
             const btn = document.createElement("button");
             btn.classList.add("removeGame")
