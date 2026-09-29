@@ -491,9 +491,19 @@ styling is limited with this pseudo button approach
   
 }
 
-
+.mo {}
 
 @media(max-width: 800px){
+
+.searchbox{
+    width: 20em;
+}
+
+.searchbox:hover {
+    width: 20em;
+}
+
+
 
     .mobileSearch {
     margin-top: 8em;
@@ -507,9 +517,7 @@ styling is limited with this pseudo button approach
         padding-top: 10em;
     }
 
-    .searchbox:hover {
-      width: 18em;
-}
+
 
   
 

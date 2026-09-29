@@ -22,6 +22,7 @@ function moveSearchbox() {
     
     if (window.innerWidth <= 800) {
         mobileSearch.appendChild(searchbox);
+        mobileSearch.classList.add("mo")
     } else {
         navbar.insertBefore(searchbox, editbutton);
     }
@@ -168,14 +169,17 @@ function writeGameToJSON(game) {
 function renderGamesFromJSON(games) {
     
 
-    const landing = document.getElementById("gamelandingPS5");
-    const landing1 = document.getElementById("gamelandingPS4");
-    const landing2 = document.getElementById("gamelandingPS3");
-    const landing3 = document.getElementById("gamelandingPS2")
-    landing.innerHTML = ""
-    landing1.innerHTML = ""
-    landing2.innerHTML = ""
-    landing3.innerHTML = ""
+    //const landing = document.getElementById("gamelandingPS5");
+    //const landing1 = document.getElementById("gamelandingPS4");
+    //const landing2 = document.getElementById("gamelandingPS3");
+    //const landing3 = document.getElementById("gamelandingPS2")
+    //landing.innerHTML = ""
+    //landing1.innerHTML = ""
+    //landing2.innerHTML = ""
+    //landing3.innerHTML = ""
+
+    //if ps5 in json and if not exists createElement "landing"
+    
 
     fetch(`${host}/games`)
     .then(response => response.json())
@@ -211,9 +215,19 @@ function renderGamesFromJSON(games) {
           
             card.appendChild(btn);
 
-            if (game.platform === "PS5") {
-                landing.appendChild(card)
+            const ps5landing = document.querySelector(".ps5landing")
+            if (game.platform === "PS5" && ps5landing) {
+                ps5landing.appendChild(card)
+                }
+            else {
+                const ps5landing = document.createElement("div")
+                const gamelanding = document.getElementById("gamelanding")
+                ps5landing.classList.add("ps5area")
+                gamelanding.appendChild(ps5landing)
+                ps5landing.appendChild(card)
             }
+
+
             if (game.platform === "PS4") {
                 landing1.appendChild(card)
             }
