@@ -163,15 +163,13 @@ function writeGameToJSON(game) {
     .finally(renderGamesFromJSON);
 }
 
-//This function creates game cards for each game using values stored in JSON file
-//If statments are used to determine platform and which area
+//This function creates game cards for added games then returns cards to be used
 
 function createCards(game) {
     const card = document.createElement("div");
             card.classList.add("gameCard");
 
             //create game image
-        
             const image = document.createElement("img");
             image.src = game.cover
             image.classList.add("gameCardImg");
@@ -183,7 +181,7 @@ function createCards(game) {
             name.classList.add("gameCardTitle");
             card.appendChild(name);
             
-             //remove button
+            //remove button
             const btn = document.createElement("button");
             btn.classList.add("removeGame")
             btn.textContent = "X"
@@ -197,22 +195,28 @@ function createCards(game) {
 
 }
 
+//this function creates platform landing areas to sort cards
+
 function renderPlatform(game, card) {
-     let ps5landing = document.querySelector(".ps5landing")
+    const platformName = game.platform
+    const platformClass = platformName.toLowerCase() + "landing";
+    let landing = document.querySelector("." + platformClass)
+    
+        
             
-            
-            if (game.platform === "PS5" && ps5landing) {
-                ps5landing.appendChild(card)
+            if (landing) {
+                landing.appendChild(card)
                 }
             else {
-                const ps5landing = document.createElement("div")
-                const ps5landingheader = document.createElement("h2")
+                landing = document.createElement("div")
+                const header = document.createElement("h2")
                 const gamelanding = document.getElementById("gamelanding")
-                ps5landingheader.textContent = "PS5"
-                ps5landing.classList.add("ps5landing")
-                gamelanding.appendChild(ps5landing)
-                ps5landing.appendChild(ps5landingheader)
-                ps5landing.appendChild(card)
+                header.textContent = game.platform
+                landing.classList.add(platformClass)
+                landing.classList.add("platformContainer")
+                gamelanding.appendChild(landing)
+                landing.appendChild(header)
+                landing.appendChild(card)
             }
 
 
