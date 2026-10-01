@@ -448,6 +448,7 @@ styling is limited with this pseudo button approach
     align-self: center;
     background-color: rgba(201, 200, 200, 0);
     border: none;
+    cursor: pointer;
    
 }
 .backbtn {

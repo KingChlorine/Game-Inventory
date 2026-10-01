@@ -166,33 +166,8 @@ function writeGameToJSON(game) {
 //This function creates game cards for each game using values stored in JSON file
 //If statments are used to determine platform and which area
 
-function renderGamesFromJSON(games) {
-    
-
-    //const landing = document.getElementById("gamelandingPS5");
-    //const landing1 = document.getElementById("gamelandingPS4");
-    //const landing2 = document.getElementById("gamelandingPS3");
-    //const landing3 = document.getElementById("gamelandingPS2")
-    //landing.innerHTML = ""
-    //landing1.innerHTML = ""
-    //landing2.innerHTML = ""
-    //landing3.innerHTML = ""
-
-    //if ps5 in json and if not exists createElement "landing"
-    
-    //reads json file then creates elements for game cards and landing area
-    fetch(`${host}/games`)
-    .then(response => response.json())
-    .then(data => { 
-        console.log("json fetched", data);
-
-        document.getElementById("gamelanding").innerHTML = "";
-
-
-        data.forEach(game => {
-            console.log(game.name)
-
-            const card = document.createElement("div");
+function createCards(game) {
+    const card = document.createElement("div");
             card.classList.add("gameCard");
 
             //create game image
@@ -218,7 +193,12 @@ function renderGamesFromJSON(games) {
           
             card.appendChild(btn);
 
-            let ps5landing = document.querySelector(".ps5landing")
+           return card;
+
+}
+
+function renderPlatform(game, card) {
+     let ps5landing = document.querySelector(".ps5landing")
             
             
             if (game.platform === "PS5" && ps5landing) {
@@ -236,16 +216,26 @@ function renderGamesFromJSON(games) {
             }
 
 
-            if (game.platform === "PS4") {
-                landing1.appendChild(card)
-            }
-            if (game.platform === "PS3") {
-                landing2.appendChild(card)
-            }
-            if (game.platform === "PS2") {
-                landing3.appendChild(card)
-            }
-          
+            
+}
+
+function renderGamesFromJSON(games) {
+    
+    fetch(`${host}/games`)
+    .then(response => response.json())
+    .then(data => { 
+        console.log("json fetched", data);
+        document.getElementById("gamelanding").innerHTML = "";
+
+        data.forEach(game => {
+            console.log(game.name)
+
+            //removed cards 
+            createCards(game)
+
+            //removed if else platform logic
+            const card = createCards(game)
+            renderPlatform(game, card)
             
 
         });
@@ -257,9 +247,7 @@ function renderGamesFromJSON(games) {
 
 }
 
-function sortPlatforms() {
-    
-}
+
 
 
 function deleteGamefromJSON(id) { 
@@ -268,8 +256,8 @@ function deleteGamefromJSON(id) {
       
     })
     
-    //.then(() => renderGamesFromJSON())
-    //.catch(err => console.error("Error:", err));
+    .then(() => renderGamesFromJSON())
+    .catch(err => console.error("Error:", err));
     
 }
 
