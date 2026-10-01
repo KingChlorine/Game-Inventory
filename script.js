@@ -180,11 +180,14 @@ function renderGamesFromJSON(games) {
 
     //if ps5 in json and if not exists createElement "landing"
     
-
+    //reads json file then creates elements for game cards and landing area
     fetch(`${host}/games`)
     .then(response => response.json())
     .then(data => { 
         console.log("json fetched", data);
+
+        document.getElementById("gamelanding").innerHTML = "";
+
 
         data.forEach(game => {
             console.log(game.name)
@@ -215,15 +218,20 @@ function renderGamesFromJSON(games) {
           
             card.appendChild(btn);
 
-            const ps5landing = document.querySelector(".ps5landing")
+            let ps5landing = document.querySelector(".ps5landing")
+            
+            
             if (game.platform === "PS5" && ps5landing) {
                 ps5landing.appendChild(card)
                 }
             else {
                 const ps5landing = document.createElement("div")
+                const ps5landingheader = document.createElement("h2")
                 const gamelanding = document.getElementById("gamelanding")
-                ps5landing.classList.add("ps5area")
+                ps5landingheader.textContent = "PS5"
+                ps5landing.classList.add("ps5landing")
                 gamelanding.appendChild(ps5landing)
+                ps5landing.appendChild(ps5landingheader)
                 ps5landing.appendChild(card)
             }
 
@@ -249,6 +257,9 @@ function renderGamesFromJSON(games) {
 
 }
 
+function sortPlatforms() {
+    
+}
 
 
 function deleteGamefromJSON(id) { 
@@ -257,8 +268,8 @@ function deleteGamefromJSON(id) {
       
     })
     
-    .then(() => renderGamesFromJSON())
-    .catch(err => console.error("Error:", err));
+    //.then(() => renderGamesFromJSON())
+    //.catch(err => console.error("Error:", err));
     
 }
 
