@@ -129,20 +129,27 @@ function addGame(game, selectedPlatform) {
 // If the title of a game gard matches the search value, nothing is changed, if the title does not match, 
 // the display is set to none.
 
-function search() {
+function search(platform) {
+    
     const searchValue = document.getElementById("searchbar").value.toLowerCase();
     const cards = document.getElementsByClassName("gameCard");
+    const platformContainers = document.getElementsByClassName("platformContainer");
 
     for (let i = 0; i < cards.length; i++) {
         const card = cards[i];
         const title = card.querySelector(".gameCardTitle").textContent.toLowerCase();
 
-        if (title.startsWith(searchValue) || title.includes(searchValue)) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none";
-        }
+        const match = title.startsWith(searchValue) || title.includes(searchValue);
+        card.style.display = match ? "" : "none";
     }
+
+    
+    for (let landing of platformContainers) {
+        const header = landing.getElementsByClassName("platformHeader")[0];
+        const visibleCrds = landing.querySelectorAll(".gameCard:not([style*='display: none'])");
+        header.style.display = visibleCrds.length > 0 ? "" : "none";
+    }
+
 }
 
 //needs more understanding************
@@ -210,6 +217,7 @@ function renderPlatform(game, card) {
             else {
                 landing = document.createElement("div")
                 const header = document.createElement("h2")
+                header.classList.add("platformHeader")
                 const gamelanding = document.getElementById("gamelanding")
                 header.textContent = game.platform
                 landing.classList.add(platformClass)
@@ -218,8 +226,6 @@ function renderPlatform(game, card) {
                 landing.appendChild(header)
                 landing.appendChild(card)
             }
-
-
             
 }
 

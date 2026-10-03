@@ -469,6 +469,7 @@ styling is limited with this pseudo button approach
     flex-wrap: wrap;
     gap: 1em;
     padding-bottom: 1em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .platformContainer h2 {
