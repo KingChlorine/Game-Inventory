@@ -125,16 +125,14 @@ function addGame(game, selectedPlatform) {
    
 }
 
-// This function filters which owned games are visible. Searchbar input is used to loop through gameCards. 
-// If the title of a game gard matches the search value, nothing is changed, if the title does not match, 
-// the display is set to none.
-
+//filter visible game cards and platform headers based on search input. 
 function search(platform) {
     
     const searchValue = document.getElementById("searchbar").value.toLowerCase();
     const cards = document.getElementsByClassName("gameCard");
     const platformContainers = document.getElementsByClassName("platformContainer");
 
+// Loop through all game cards and hide those that don't match the search value
     for (let i = 0; i < cards.length; i++) {
         const card = cards[i];
         const title = card.querySelector(".gameCardTitle").textContent.toLowerCase();
@@ -143,7 +141,7 @@ function search(platform) {
         card.style.display = match ? "" : "none";
     }
 
-    
+// Loop through all platform containers and hide those that don't have any visible game cards
     for (let landing of platformContainers) {
         const header = landing.getElementsByClassName("platformHeader")[0];
         const visibleCrds = landing.querySelectorAll(".gameCard:not([style*='display: none'])");
@@ -155,7 +153,6 @@ function search(platform) {
 //needs more understanding************
 // This function uses add_game endpoint to make post request to flask backend
 // When game is successfully added to json, that updated json renders game cards
-
 function writeGameToJSON(game) { 
     fetch(`${host}/add_game`, {
         method: 'POST',
@@ -373,7 +370,7 @@ function hideDetails() {
     const searchContainer = document.getElementById("searchContainer")
     const results = document.getElementById("results")
     backbtn.classList.add('backbtn')
-    backbtn.textContent = "↩"
+    backbtn.textContent = "BACK"; //↩
     backbtn.addEventListener("click", () => {
         detailsdiv.style.display = "none";
         resultsDiv.style.display = "flex";

@@ -179,7 +179,7 @@ styling is limited with this pseudo button approach
 
 #popupform-addgame {
     
-    margin: auto;
+   
     background-color: rgb(247, 247, 247);
     display: flex;
     flex-direction: column;
@@ -225,11 +225,11 @@ styling is limited with this pseudo button approach
 }
 
 .popupnav {
-    height: 2em;
+    height: 4em;
     display: flex;
+    margin-top: auto;
     flex-direction: row-reverse;
-    justify-content: space-between;
-    padding-left: .7em;
+  
 }
 
 #details {
@@ -239,9 +239,21 @@ styling is limited with this pseudo button approach
 #close {
    
     background-color: rgb(247, 247, 247);
-    border: none;
+    width: 5em;
+    box-sizing: border-box;
     font-size: 1.5em;
     cursor: pointer;
+    margin-left: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 0px;
+    height: 1em;
+    
+  
+}
+
+#close:hover {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
 }
 
 
@@ -416,11 +428,18 @@ styling is limited with this pseudo button approach
    
 }
 .backbtn {
-    color: rgb(0, 0, 0);
-    background-color: rgb(233, 232, 232);
     align-self: center;
     border: none;
+    background-color: rgba(201, 200, 200, 0);
+    font-size: 1.5em;
+    width: 5em;
 }   
+
+.backbtn:hover {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    
+}
 
 .platforms button{
     color: rgb(206, 75, 75);
