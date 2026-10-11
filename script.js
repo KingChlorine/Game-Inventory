@@ -315,7 +315,15 @@ function createGameDetails(game) {
     const btn = document.createElement("button");
         btn.classList.add('addGamebtn')
         btn.textContent = "Add Game";
-        btn.addEventListener("click", () => addGame(game, selectedPlatform));
+        btn.addEventListener("click", () => {
+    addGame(game, selectedPlatform);
+
+        btn.textContent = "Game Added";
+        setTimeout(() => {
+            btn.textContent = "Add Game";
+        }, 1000);
+    });
+       
         detailsdiv.appendChild(btn);
     
     platform1.addEventListener("click", () => {
@@ -370,7 +378,7 @@ function hideDetails() {
     const searchContainer = document.getElementById("searchContainer")
     const results = document.getElementById("results")
     backbtn.classList.add('backbtn')
-    backbtn.textContent = "BACK"; //↩
+    backbtn.textContent = "Back"; //↩
     backbtn.addEventListener("click", () => {
         detailsdiv.style.display = "none";
         resultsDiv.style.display = "flex";

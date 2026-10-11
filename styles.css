@@ -244,11 +244,11 @@ styling is limited with this pseudo button approach
     font-size: 1.5em;
     cursor: pointer;
     margin-left: auto;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     border: 0px;
-    height: 1em;
+    height: 1.5em;
+    margin-top: auto;
+    margin-bottom: auto;
     
-  
 }
 
 #close:hover {
@@ -442,9 +442,16 @@ styling is limited with this pseudo button approach
 }
 
 .platforms button{
-    color: rgb(206, 75, 75);
+   background-color: rgb(201, 200, 200);
+    color: black;
+    border-radius: 15px;
     width: 5em;
 }
+
+.platforms button:focus {
+    color: blue;
+    }
+
 .platforms{
     display: flex;
     gap: 1em;
@@ -452,11 +459,18 @@ styling is limited with this pseudo button approach
 }
 
 .addGamebtn {
-
-    
+    border: none; 
     flex-wrap: nowrap;
     width: 10em;
+    background-color: rgb(247, 247, 247);
+    height: 2em;
     }
+.addGamebtn:hover {
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 15px;
+    height: 2em;
+}
 
 
 
