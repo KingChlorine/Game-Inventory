@@ -354,6 +354,11 @@ function createGameDetails(game) {
   return selectedPlatform;
 }
 
+//create platform buttons
+function createPlatformButtons() {
+    const platforms = ["PC", "PS2", "PS3", "PS4", "PS5"];
+}
+
 //this funtion hides results and displays the details modal state
 function displayDetails() {
     const resultContainer = document.getElementById("results")

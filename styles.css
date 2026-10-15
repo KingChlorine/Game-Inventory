@@ -442,15 +442,21 @@ styling is limited with this pseudo button approach
 }
 
 .platforms button{
-   background-color: rgb(201, 200, 200);
-    color: black;
-    border-radius: 15px;
-    width: 5em;
+   background-color: rgb(247, 247, 247);
+   border: none;
+   width: 5em;
+   border-radius: 15px;
+   height: 2em;
 }
 
 .platforms button:focus {
-    color: blue;
+    border: 1px solid rgb(0, 0, 0);
     }
+
+.platforms button:hover {
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+}
 
 .platforms{
     display: flex;
@@ -464,13 +470,18 @@ styling is limited with this pseudo button approach
     width: 10em;
     background-color: rgb(247, 247, 247);
     height: 2em;
+    text-align: left;
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+
 .addGamebtn:hover {
-    border: 1px solid rgb(0, 0, 0);
     cursor: pointer;
     border-radius: 15px;
     height: 2em;
+    color: rgb(201, 200, 200);
 }
+
 
 
 
